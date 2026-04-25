@@ -124,33 +124,89 @@ output/
   comparison_results.json    # Side-by-side comparison
 ```
 
-## Example Results Format
+## Evaluation Results
 
-```
+```text
+A:\DEEP LEARNING\Assignmenr> python main.py --mode evaluate --checkpoint output/checkpoints/checkpoint_epoch_2.pth
+
+======================================================================
+RSNA PNEUMONIA DETECTION - EVALUATION
+======================================================================
+Using GPU: NVIDIA GeForce RTX 3050 6GB Laptop GPU (6.0GB)
+  CUDA version: 12.4
+  PyTorch CUDA: 90100
+  AMP (Mixed Precision): Available
+
+Loading data...
+Loaded 30227 annotation rows for 26684 unique patients
+Pneumonia cases: 9555
+Train: 21347 patients, Val: 5337 patients
+DataLoader config: batch_size=2, workers=2, pin_memory=True, persistent=True, prefetch=2
+
+Evaluating...
+
 ============================================================
-EVALUATION REPORT - RSNA Pneumonia Detection
+EVALUATION REPORT - IoU Threshold: 0.3
 ============================================================
-
-IoU Threshold: 0.5
-Score Threshold: 0.5
-
 --- MANDATORY METRICS ---
-  Mean IoU:        0.4521
-  Median IoU:      0.4387
-  Min IoU:         0.1023
-  Max IoU:         0.8912
-  AP@0.5 (11-pt):  0.2345
-  mAP (COCO):      0.2456
+  Mean IoU:        0.6266
+  Median IoU:      0.6363
+  Min IoU:         0.3001
+  Max IoU:         0.9296
+  AP@0.5 (11-pt):  0.4526
+  mAP (COCO):      0.4441
 
 --- Additional Metrics ---
-  Precision:       0.3124
-  Recall:          0.4567
-  F1 Score:        0.3712
-  Total GT Boxes:  9555
-  Total Predictions: 8234
-  Matched Pairs:   3421
+  Precision:       0.3927
+  Recall:          0.6569
+  F1 Score:        0.4916
+  Total GT Boxes:  1886
+  Matched Pairs:   1239
+============================================================
+
+============================================================
+EVALUATION REPORT - IoU Threshold: 0.5
+============================================================
+--- MANDATORY METRICS ---
+  Mean IoU:        0.6769
+  Median IoU:      0.6702
+  Min IoU:         0.5000
+  Max IoU:         0.9296
+  AP@0.5 (11-pt):  0.3366
+  mAP (COCO):      0.3055
+
+--- Additional Metrics ---
+  Precision:       0.3182
+  Recall:          0.5323
+  F1 Score:        0.3983
+  Total GT Boxes:  1886
+  Matched Pairs:   1004
+============================================================
+
+============================================================
+EVALUATION REPORT - IoU Threshold: 0.75
+============================================================
+--- MANDATORY METRICS ---
+  Mean IoU:        0.8087
+  Median IoU:      0.8023
+  Min IoU:         0.7502
+  Max IoU:         0.9296
+  AP@0.5 (11-pt):  0.0452
+  mAP (COCO):      0.0251
+
+--- Additional Metrics ---
+  Precision:       0.0821
+  Recall:          0.1373
+  F1 Score:        0.1028
+  Total GT Boxes:  1886
+  Matched Pairs:   259
+============================================================
+
+============================================================
+Mean Average Precision (mAP) across thresholds: 0.2781
 ============================================================
 ```
+
 
 ## Notes
 
